@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CecyCafetería</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================================== -->
+    <!-- INICIO DE SESIÓN -->
+    <!-- ================================== -->
+
+    <section id="pantallaLogin" class="pantalla">
+        <div class="contenedor-login">
+
+            <div class="login-logo">
+                <img src="img/logo-cecycafeteria.jpg" alt="Logo CecyCafetería">
+                <h1>Cecy<span class="texto-verde">Cafetería</span></h1>
+            </div>
+
+            <p class="login-subtitulo">
+                ¡Bienvenido a tu cafetería escolar!
+            </p>
+
+            <h2 id="tituloLogin">Iniciar sesión</h2>
+
+            <p class="login-descripcion">
+                Ingresa tus datos para continuar.
+            </p>
+
+            <form id="formLogin">
+
+                <label for="correo">Correo electrónico</label>
+
+                <input
+                    type="email"
+                    id="correo"
+                    name="correo"
+                    placeholder="ejemplo@correo.com"
+                    autocomplete="email"
+                    required
+                >
+
+                <label for="contrasena">Contraseña</label>
+
+                <input
+                    type="password"
+                    id="contrasena"
+                    name="contrasena"
+                    placeholder="Escribe tu contraseña"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <p id="mensajeLogin" class="mensaje-login" role="alert"></p>
+
+                <button
+                    type="submit"
+                    class="boton-principal boton-login"
+                >
+                    Iniciar sesión
+                </button>
+
+            </form>
+
+            <p class="texto-registro">
+                ¿Todavía no tienes una cuenta?
+
+                <button type="button" id="btnMostrarRegistro">
+                    Crear cuenta
+                </button>
+            </p>
+
+            <p class="aviso-login">
+                Cuenta de demostración: <strong>demo@cecycafeteria.mx</strong><br>
+                Contraseña: <strong>demo123</strong>
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- ================================== -->
+    <!-- CREAR CUENTA -->
+    <!-- ================================== -->
+
+    <section id="pantallaRegistro" class="pantalla oculto">
+
+        <div class="contenedor-login">
+
+            <div class="login-logo">
+                <img src="img/logo-cecycafeteria.jpg" alt="Logo CecyCafetería">
+                <h1>Cecy<span class="texto-verde">Cafetería</span></h1>
+            </div>
+
+            <h2>Crear cuenta</h2>
+
+            <p class="login-descripcion">
+                Completa los siguientes datos para registrarte.
+            </p>
+
+            <form id="formRegistro">
+
+                <label for="nombreRegistro">Nombre completo</label>
+
+                <input
+                    type="text"
+                    id="nombreRegistro"
+                    name="nombreRegistro"
+                    placeholder="Escribe tu nombre"
+                    autocomplete="name"
+                    required
+                >
+
+                <label for="correoRegistro">Correo electrónico</label>
+
+                <input
+                    type="email"
+                    id="correoRegistro"
+                    name="correoRegistro"
+                    placeholder="ejemplo@correo.com"
+                    autocomplete="email"
+                    required
+                >
+
+                <label for="contrasenaRegistro">Crear contraseña</label>
+
+                <input
+                    type="password"
+                    id="contrasenaRegistro"
+                    name="contrasenaRegistro"
+                    placeholder="Mínimo 6 caracteres"
+                    minlength="6"
+                    autocomplete="new-password"
+                    required
+                >
+
+                <p id="mensajeRegistro" class="mensaje-login" role="alert"></p>
+
+                <button
+                    type="submit"
+                    class="boton-principal boton-login"
+                >
+                    Crear cuenta
+                </button>
+
+            </form>
+
+            <p class="texto-registro">
+                ¿Ya tienes una cuenta?
+
+                <button type="button" id="btnVolverLogin">
+                    Iniciar sesión
+                </button>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================== -->
+    <!-- APLICACIÓN PRINCIPAL -->
+    <!-- ================================== -->
+
+    <div id="aplicacion" class="oculto">
+
+        <!-- ENCABEZADO Y NAVEGACIÓN -->
+
+        <header class="encabezado">
+
+            <div class="logo">
+                <img src="img/logo-cecycafeteria.jpg" alt="Logo CecyCafetería">
+                <h1>Cecy<span class="texto-verde">Cafetería</span></h1>
+            </div>
+
+            <nav class="navegacion">
+
+                <button type="button" id="btnInicio">
+                    Inicio
+                </button>
+
+                <button type="button" id="btnMenu">
+                    Menú
+                </button>
+
+                <button type="button" id="btnPedidos">
+                    Mis pedidos
+                </button>
+
+                <button type="button" id="btnCerrarSesion">
+                    Cerrar sesión
+                </button>
+
+                <button type="button" id="btnCarrito">
+                    🛒 Carrito
+                    <span id="contadorCarrito">0</span>
+                </button>
+
+            </nav>
+
+        </header>
+
+
+        <!-- CONTENIDO PRINCIPAL -->
+
+        <main>
+
+            <!-- ================================== -->
+            <!-- PANTALLA DE INICIO -->
+            <!-- ================================== -->
+
+            <section id="pantallaInicio" class="pantalla">
+
+                <div class="bienvenida">
+
+                    <div class="texto-bienvenida">
+
+                        <p class="etiqueta">
+                            TU CAFETERÍA ESCOLAR
+                        </p>
+
+                        <h2>
+                            ¡Bienvenido a
+                            <span class="texto-verde">CecyCafetería!</span>
+                        </h2>
+
+                        <p>
+                            Explora nuestro menú, elige tus productos
+                            favoritos y prepara tu pedido.
+                        </p>
+
+                        <button
+                            type="button"
+                            id="btnExplorarMenu"
+                            class="boton-principal"
+                        >
+                            Explorar menú
+                        </button>
+
+                    </div>
+
+                    <div class="imagen-bienvenida">
+                        <span>🍔 🍕 🥤</span>
+                    </div>
+
+                </div>
+
+                <div class="seccion-destacada">
+
+                    <h2>Categorías destacadas</h2>
+
+                    <p>
+                        Encuentra algo delicioso para disfrutar.
+                    </p>
+
+                    <div
+                        id="categoriasDestacadas"
+                        class="rejilla-categorias"
+                    ></div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================================== -->
+            <!-- PANTALLA DEL MENÚ -->
+            <!-- ================================== -->
+
+            <section id="pantallaMenu" class="pantalla oculto">
+
+                <div class="encabezado-seccion">
+
+                    <h2>Nuestro menú</h2>
+
+                    <p>
+                        Elige tus alimentos y bebidas favoritos.
+                    </p>
+
+                </div>
+
+                <div class="buscador">
+
+                    <input
+                        type="search"
+                        id="buscarProducto"
+                        placeholder="🔎 Buscar un producto..."
+                        aria-label="Buscar un producto"
+                    >
+
+                </div>
+
+                <div
+                    id="categoriasMenu"
+                    class="rejilla-categorias"
+                ></div>
+
+                <section
+                    id="seccionProductos"
+                    class="seccion-productos oculto"
+                >
+
+                    <button
+                        type="button"
+                        id="btnVolverCategorias"
+                        class="boton-secundario"
+                    >
+                        ← Volver a las categorías
+                    </button>
+
+                    <h2 id="tituloCategoria"></h2>
+
+                    <div
+                        id="listaProductos"
+                        class="rejilla-productos"
+                    ></div>
+
+                </section>
+
+            </section>
+
+
+            <!-- ================================== -->
+            <!-- CARRITO Y PEDIDO -->
+            <!-- ================================== -->
+
+            <section id="pantallaPedido" class="pantalla oculto">
+
+                <div class="encabezado-seccion">
+
+                    <h2>🛒 Mi carrito</h2>
+
+                    <p>
+                        Revisa los productos que elegiste.
+                    </p>
+
+                </div>
+
+                <div
+                    id="listaPedido"
+                    class="lista-pedido"
+                ></div>
+
+                <div class="resumen-pedido">
+
+                    <p>
+                        Subtotal:
+                        <span id="subtotalPedido">$0.00</span>
+                    </p>
+
+                    <p>
+                        Total:
+                        <strong id="totalPedido">$0.00</strong>
+                    </p>
+
+                    <button
+                        type="button"
+                        id="btnConfirmarPedido"
+                        class="boton-principal"
+                    >
+                        Confirmar pedido
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btnSeguirComprando"
+                        class="boton-secundario"
+                    >
+                        Seguir comprando
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================================== -->
+            <!-- CONFIRMACIÓN DEL PEDIDO -->
+            <!-- ================================== -->
+
+            <section
+                id="pantallaConfirmacion"
+                class="pantalla oculto"
+            >
+
+                <div class="tarjeta-confirmacion">
+
+                    <div class="icono-confirmacion">✅</div>
+
+                    <h2>¡Pedido registrado!</h2>
+
+                    <p>
+                        Tu número de pedido es:
+                    </p>
+
+                    <h3 id="numeroPedido">0001</h3>
+
+                    <p id="mensajeConfirmacion">
+                        Tu pedido se registró correctamente.
+                    </p>
+
+                    <p>
+                        Estado:
+                        <strong id="estadoPedido">En preparación</strong>
+                    </p>
+
+                    <button
+                        type="button"
+                        id="btnVerTicket"
+                        class="boton-principal"
+                    >
+                        Ver mi ticket
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btnVolverInicio"
+                        class="boton-secundario"
+                    >
+                        Volver al inicio
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================================== -->
+            <!-- TICKET -->
+            <!-- ================================== -->
+
+            <section id="pantallaTicket" class="pantalla oculto">
+
+                <div class="contenedor-ticket">
+
+                    <h2>🧾 Ticket de compra</h2>
+
+                    <p>CecyCafetería</p>
+
+                    <hr>
+
+                    <div id="contenidoTicket"></div>
+
+                    <hr>
+
+                    <p class="aviso-login">
+                        Ticket de demostración escolar.
+                    </p>
+
+                    <button
+                        type="button"
+                        id="btnTicketInicio"
+                        class="boton-principal"
+                    >
+                        Volver al inicio
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================================== -->
+            <!-- HISTORIAL DE PEDIDOS -->
+            <!-- ================================== -->
+
+            <section id="pantallaHistorial" class="pantalla oculto">
+
+                <div class="encabezado-seccion">
+
+                    <h2>📋 Mis pedidos</h2>
+
+                    <p>
+                        Consulta los pedidos realizados en esta sesión.
+                    </p>
+
+                </div>
+
+                <div
+                    id="listaHistorial"
+                    class="lista-historial"
+                ></div>
+
+                <button
+                    type="button"
+                    id="btnHistorialInicio"
+                    class="boton-secundario"
+                >
+                    Volver al inicio
+                </button>
+
+            </section>
+
+        </main>
+
+
+        <!-- ================================== -->
+        <!-- PIE DE PÁGINA -->
+        <!-- ================================== -->
+
+        <footer class="pie-pagina">
+
+            <h3>🍃 CecyCafetería</h3>
+
+            <p>
+                Proyecto escolar de demostración.
+            </p>
+
+            <p>
+                © 2026 CecyCafetería
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <!-- ARCHIVO JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
